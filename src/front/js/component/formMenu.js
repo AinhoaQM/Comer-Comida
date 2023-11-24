@@ -62,7 +62,6 @@ export const FormMenu = ({ setShowLoginMessage }) => {
         drink_name: drinkName,
         dessert_name: dessertName
       };
-      console.log('Data a enviar:', data);
 
       fetch(process.env.BACKEND_URL + "/api/create-menu", {
         method: 'POST',
@@ -73,14 +72,8 @@ export const FormMenu = ({ setShowLoginMessage }) => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Nuevo menú creado:', data);
-        
         const menuProductWithId = { ...menuProduct, id: data.menu.id }; 
-        console.log(data.menu.id);
-
-        actions.addToCart(menuProductWithId, 1);
-        console.log(`Se agregó 1 menú al carrito.`);
-        
+        actions.addToCart(menuProductWithId, 1);        
         resetSelects();
       })
       .catch((error) => {
@@ -96,7 +89,6 @@ export const FormMenu = ({ setShowLoginMessage }) => {
     fetch(process.env.BACKEND_URL + "/api/category-1/products")
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const starterOptions = data.products.map(starter => {
           return { id: starter.id, name: starter.name };
         });
@@ -109,7 +101,6 @@ export const FormMenu = ({ setShowLoginMessage }) => {
     fetch(process.env.BACKEND_URL + "/api/category-2/products")
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const dishOptions = data.products.map(dish => {
           return { id: dish.id, name: dish.name };
         });
@@ -122,7 +113,6 @@ export const FormMenu = ({ setShowLoginMessage }) => {
     fetch(process.env.BACKEND_URL + "/api/category-3/products")
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const drinkOptions = data.products.map(drink => {
           return { id: drink.id, name: drink.name };
         });
@@ -135,7 +125,6 @@ export const FormMenu = ({ setShowLoginMessage }) => {
     fetch(process.env.BACKEND_URL + "/api/category-4/products")
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const dessertOptions = data.products.map(dessert => {
           return { id: dessert.id, name: dessert.name };
         });

@@ -17,7 +17,6 @@ export const OrdersHistory = () => {
         });
         const data = await response.json();
         setOrders(data);
-        console.log(data)
       } catch (error) {
         console.error("Error fetching orders:", error);
       }

@@ -9,7 +9,6 @@ import menu from '../../img/menu.png';
 
 export const Cart = () => {
   const { store, actions } = useContext(Context);
-  console.log(store)
 
   const handleAddMore = (productId) => {
     actions.incrementQuantity(productId);

@@ -96,7 +96,6 @@ export const Order = () => {
       paymentMethod: document.querySelector('input[name="paymentOption"]:checked').value, 
       cart: cart  
     };
-    console.log("Order Data:", orderData);
     try {
       const authToken = localStorage.getItem('token');
       const response = await fetch(process.env.BACKEND_URL + "/api/create-order", {
@@ -109,10 +108,7 @@ export const Order = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log('Orden registrada con éxito:', data);
-        console.log('Order ID:', data.id);
         if (data.id !== undefined) {
-          console.log('Order ID:', data.id);
     
           if (orderData.paymentMethod === "tarjeta") {
             navigate(`/payment/${data.id}`);

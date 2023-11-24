@@ -13,7 +13,6 @@ export const Drinks = () => {
   const addToCart = (product, quantity) => {
     if (store.isAuthenticated) {
       actions.addToCart(product, quantity);
-      console.log(`Se agregó ${quantity} ${product.name} al carrito.`);
       setQuantity(1);
     } else {
       setShowLoginMessage(true);
@@ -35,7 +34,6 @@ export const Drinks = () => {
             quantity: 1,
           }))
         );
-        console.log(sortedProducts);
       })
       .catch((error) => console.error("Error:", error));
   }, []);

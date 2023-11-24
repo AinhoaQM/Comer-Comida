@@ -39,7 +39,6 @@ const getState = ({ getStore, setStore }) => {
                 const store = getStore();
                 const updatedCart = [...store.cart, { ...product, quantity }];
                 setStore({ cart: updatedCart });
-                console.log(store.cart)
                 localStorage.setItem('cart', JSON.stringify(updatedCart));
             },
 
@@ -49,7 +48,6 @@ const getState = ({ getStore, setStore }) => {
                 setStore(prevState => ({
                     cart: [...prevState.cart, menuProduct]
                 }));
-                console.log('Menu añadido al carrito:', menuProduct);
                 localStorage.setItem('cart', JSON.stringify([...getStore().cart, menuProduct]));
             },      
             
@@ -90,7 +88,6 @@ const getState = ({ getStore, setStore }) => {
                         body: JSON.stringify({ code: discountCode })
                     });
                     const data = await response.json();
-                    console.log("codigo de descuento", data)
                     return data;
                 } catch (error) {
                     console.error('Error al validar el código de descuento:', error);

@@ -19,7 +19,6 @@ export const Payment = () => {
     .then((data) => {
       const totalPriceInCents = data.total_price ? Math.round(data.total_price * 100) : null;
       if (totalPriceInCents !== null) {
-        console.log("Total Price en centavos:", totalPriceInCents);
         setTotalPrice(totalPriceInCents);
       } else {
         console.error("El precio no es válido:", data.total_price);

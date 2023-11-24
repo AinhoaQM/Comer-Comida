@@ -82,7 +82,6 @@ export const FormLogin = () => {
                         const user_name = decodedToken.user_name;
 
                         actions.setIsAuthenticated(true, user_name);
-                        console.log('Autenticado:', store.isAuthenticated);
                         
                         localStorage.setItem('token', userToken);
                         localStorage.setItem('userEmail', userEmail);

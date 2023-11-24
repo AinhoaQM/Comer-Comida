@@ -26,7 +26,6 @@ export const Ticket = () => {
         .then(response => response.json())
         .then(data => {
           setorder(data);
-          console.log(data);
         })
         .catch(error => console.error('Error:', error));
     }
