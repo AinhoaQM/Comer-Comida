@@ -1,0 +1,59 @@
+/* Estilos generales */
+    .ticket-body {
+        font-family: 'Oxygen', sans-serif;
+    }
+  
+    .ffBG {
+        font-family: 'Bricolage Grotesque', sans-serif;
+    }
+  
+    .ticket-subtitle{
+        color: #ff7e67;
+    }
+    
+    .ticket-color-pink{
+        color: #ff5334;
+    }
+
+    .ticket-color-black{
+        color: black;
+    }
+    
+    .ticket-background-abstract {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .ticket-comment {
+        max-width: 550px; 
+      }
+
+/* Estilos de las imagenes */
+    .ticket-image-container {
+        padding-top: 0%;
+        padding-bottom: 0%;
+        align-items: center;
+    }
+    
+    .ticket-image{
+        border-radius: 10px;
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.437); 
+    }
+  
+/* Estilos de las boxes */
+    .ticket-rounded {
+        border-radius: 10px; 
+    }
+    
+    .ticket-shadow {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.437); 
+    }
+    
+    .ticket-bg-light {
+        background-color: #ffffff; 
+    }
+
+    
