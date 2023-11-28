@@ -59,7 +59,7 @@ export const FormReservation = () => {
       numberOfPeople: formData.numberOfPeople
     };
     try { 
-      const response = await fetch(process.env.BACKEND_URL + "/api/create-reservation", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/reservation", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

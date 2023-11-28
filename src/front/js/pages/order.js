@@ -98,7 +98,7 @@ export const Order = () => {
     };
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(process.env.BACKEND_URL + "/api/create-order", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/order", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

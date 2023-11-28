@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "../../styles/index.css";
 
 //firabase google
-import { FirebaseConfig } from "../component/firebaseConfig";
-import { initializeApp } from "firebase/app";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 //components
@@ -20,8 +18,6 @@ export const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState(null);
     const [userNotFound, setUserNotFound] = useState(false);
-
-    initializeApp(FirebaseConfig);
 
     const auth = getAuth();
 
@@ -94,7 +90,7 @@ export const ResetPassword = () => {
                     <img src={iconOutlook} alt="Outlook" /> Abrir Outlook
                 </a>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center pt-4">
                 <p className="d-flex justify-content-center mx-4 mt-2">¿No has recibido ningún e-mail? No te olvides de revisa la carpeta de spam.</p>
             </div>
             <div className="d-flex justify-content-center align-items-center mt-4 mb-4">

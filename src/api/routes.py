@@ -193,7 +193,7 @@ def get_user_orders_(user_id):
 
     
 # Ruta para crear un menu
-@api.route('/create-menu', methods=['POST'])
+@api.route('/menu', methods=['POST'])
 def create_menu():
     try:
         data = request.get_json()
@@ -243,8 +243,8 @@ def create_menu():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-# Ruta para crear un producto
-@api.route('/create-product', methods=['POST'])
+# Ruta para crear producto
+@api.route('/product', methods=['POST'])
 def create_product():
     body = request.get_json()
 
@@ -299,7 +299,7 @@ def product_detail(product_id):
     return jsonify(response_body), 200 """
 
 # Ruta para editar un product
-@api.route('/edit-product/<int:product_id>', methods=['PUT'])
+@api.route('/product/<int:product_id>', methods=['PUT'])
 def edit_product(product_id):
     # Obtener los datos del producto a editar del cuerpo de la solicitud
     body = request.get_json()
@@ -336,7 +336,7 @@ def edit_product(product_id):
     return jsonify(response_body), 200
 
 # Ruta para eliminar un producto de la db
-@api.route('/delete-product/<int:product_id>', methods=['DELETE'])
+@api.route('/product/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
     # Buscar el producto en la base de datos
     product = Product.query.get(product_id)
@@ -355,8 +355,8 @@ def delete_product(product_id):
         # Si hay algun error durante la eliminación, devolver una respuesta de error
         return jsonify({'error': 'Error al eliminar el producto.'}), 500
 
-# Ruta para crear las categorías de los productos (1. Entrantes, 2. Platos, 3. Bebidas, 4. Postres)
-@api.route('/create-category', methods=['POST'])
+# Ruta para crear las categorías de los productos (1. Starters, 2. Dishes, 3. Drinks, 4. Desserts)
+@api.route('/category', methods=['POST'])
 def create_category():
     name = request.json.get('name')
 
@@ -425,7 +425,7 @@ def nav_cart():
     return jsonify(response_body), 200
 
 # Ruta para crear un nuevo código de descuento
-@api.route('/create-discount', methods=['POST'])
+@api.route('/discount', methods=['POST'])
 def create_discount():
     data = request.get_json()  
     
@@ -468,7 +468,7 @@ def validate_discount():
         return jsonify({'error': str(e)}), 500
 
 # Ruta para guardar "Contacta con Nosotros"
-@api.route('/contact', methods=['POST'])
+@api.route('/messages', methods=['POST'])
 def contact():
     data = request.get_json()
 
@@ -500,7 +500,7 @@ def get_messages():
     return jsonify({'messages': message_list})
 
 # Ruta para eliminar un mensaje por su ID
-@api.route('/messages/<int:message_id>', methods=['DELETE'])
+@api.route('/message/<int:message_id>', methods=['DELETE'])
 def delete_message(message_id):
     message = ContactMessage.query.get(message_id)
     if message:
@@ -511,7 +511,7 @@ def delete_message(message_id):
         return jsonify({'message': 'Mensaje no encontrado'}), 404
 
 # Ruta para crear una nueva reserva
-@api.route('/create-reservation', methods=['POST'])
+@api.route('/reservation', methods=['POST'])
 def create_reservation():
     data = request.get_json()
 
@@ -529,7 +529,7 @@ def create_reservation():
     return jsonify({'message': 'Solicitud de reserva creada correctamente'})
 
 # Ruta para ver todas las reservas enviadas
-@api.route('/view-reservations', methods=['GET'])
+@api.route('/reservations', methods=['GET'])
 def view_reservations():
     reservations = Reservation.query.all()
     
@@ -543,7 +543,7 @@ def view_reservations():
     return jsonify(response_body), 200
 
 # Ruta para registrar un pedido 
-@api.route('/create-order', methods=['POST'])
+@api.route('/order', methods=['POST'])
 @jwt_required()
 def create_order():
     try:
@@ -627,7 +627,7 @@ def get_order_(order_id):
         return jsonify({'message': str(e)}), 400
 
 # Ruta para eliminar todos los pedidos
-@api.route('/delete-all-orders', methods=['DELETE'])
+@api.route('/orders', methods=['DELETE'])
 def delete_all_orders():
     try:
         OrderDetail.query.delete()

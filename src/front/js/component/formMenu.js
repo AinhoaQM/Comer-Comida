@@ -63,7 +63,7 @@ export const FormMenu = ({ setShowLoginMessage }) => {
         dessert_name: dessertName
       };
 
-      fetch(process.env.BACKEND_URL + "/api/create-menu", {
+      fetch(process.env.BACKEND_URL + "/api/menu", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

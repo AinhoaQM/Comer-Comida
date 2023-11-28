@@ -3,8 +3,7 @@ import { Context } from '../store/appContext';
 import { useNavigate, Link  } from 'react-router-dom';
 import "../../styles/index.css";
 
-import { initializeApp } from "firebase/app";
-import { FirebaseConfig } from "./firebaseConfig";
+//firebase
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 //icons
@@ -15,8 +14,6 @@ export const FirebaseAuth = () => {
     const { actions} = useContext(Context);
     const navigate = useNavigate();
     const provider = new GoogleAuthProvider();
-
-    initializeApp(FirebaseConfig);    
 
     const auth = getAuth();
     function callLoginGoogle() {

@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/index.css";
 
 export const FormContact = () => {
-  const { store } = useContext(Context);
+  useContext(Context);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({
     name: localStorage.getItem('userName') || '',
@@ -27,7 +27,7 @@ export const FormContact = () => {
       message: formData.message
     };
     try { 
-        const response = await fetch(process.env.BACKEND_URL + "/api/contact", {
+        const response = await fetch(process.env.BACKEND_URL + "/api/messages", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
